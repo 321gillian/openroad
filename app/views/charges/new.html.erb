@@ -1,0 +1,61 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenRoad</title>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <% if request.ssl? %>
+      <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+    <% else %>
+ 
+      <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+    <% end %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'basicstyles' , media: 'all'%>
+
+  </head>
+  <body>
+     <%= render 'layouts/nav_bar' %>
+     <div class="container-fluid">
+     <div class="row d-flex justify-content-center">
+     <section class="form-section">
+     <h2>Your Order</h2>
+     <hr>
+     <p class="sub-head">Driving Lessons <span class="text-right"> x <%= current_order.order_items.count %></span></p>
+     <hr>
+     <%= form_tag charges_path do %>
+      <article>
+        <% if flash[:error].present? %>
+          <div id="error_explanation">
+            <p><%= flash[:error] %></p>
+          </div>
+        <% end %>
+        <p class="text-right"><span class="total">Total</span>&nbsp;&nbsp;<span class="total-amount"><%= number_to_currency current_order.subtotal, unit: "€" %></span></p>
+      </article>
+      <%= submit_tag "Pay with card", class: 'btn btn-primary road-submit' %>
+    
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="Order ID:<%= @order.id %>"
+              data-amount="<%= @amount %>"
+              data-name="Open | Road Driving School"
+              data-image="<%= asset_path("jimmy.jpg") %>"
+              data-email="<%= current_user.email %>"
+              data-currency="EUR"
+              data-locale="auto"></script>
+    <% end %>
+        </div>
+       </section>
+     </div>
+     </div>
+     
+     
+
+    <%= render 'layouts/footer' %>
+  </body>
+</html>
+

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Open | Road Driving School Glasnevin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/basicstyles.css">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700|Roboto:400,400i" rel="stylesheet">  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src="js/carousel.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" type="image/ico" href="images/1x/open-road.ico">
+
+<!--MAP-->
+    <!--
+            You need to include this script tag on any page that has a Google Map.
+
+            The following script tag will work when opening this example locally on your computer.
+            But if you use this on a localhost server or a live website you will need to include an API key.
+            Sign up for one here (it's free for small usage):
+                https://developers.google.com/maps/documentation/javascript/tutorial#api_key
+
+            After you sign up, use the following script tag with YOUR_GOOGLE_API_KEY replaced with your actual key.
+                <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY"></script>
+        -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8aRaDQTKA_HlpZBtHyJR5O8Nj0aJX-wI"></script>
+
+        <script type="text/javascript">
+            // When the window has finished loading create our google map below
+            google.maps.event.addDomListener(window, 'load', init);
+    
+            function init() {
+                // Basic options for a simple Google Map
+                // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+                var mapOptions = {
+                    // How zoomed in you want the map to start at (always required)
+                    zoom: 15,
+    
+                    // The latitude and longitude to center the map (always required)
+                    center: new google.maps.LatLng(53.383756, -6.275776),
+    
+                    // How you would like to style the map.
+                    // This is where you would paste any style found on Snazzy Maps.
+                    styles: [{
+                        "featureType": "all",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "color": "#ffffff"
+                        }]
+                    }, {
+                        "featureType": "all",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [{
+                            "visibility": "off"
+                        }]
+                    }, {
+                        "featureType": "all",
+                        "elementType": "labels.icon",
+                        "stylers": [{
+                            "visibility": "off"
+                        }]
+                    }, {
+                        "featureType": "administrative",
+                        "elementType": "geometry.fill",
+                        "stylers": [{
+    
+                            "color": "#ff7417"
+    
+                        }]
+                    }, {
+                        "featureType": "administrative",
+                        "elementType": "geometry.stroke",
+                        "stylers": [{
+    
+                            "color": "#ff7417"
+                        }, {
+                            "weight": 1.2
+                        }]
+                    }, {
+                        "featureType": "administrative.locality",
+                        "elementType": "geometry.fill",
+                        "stylers": [{
+                            "lightness": "-1"
+                        }]
+                    }, {
+                        "featureType": "administrative.neighborhood",
+                        "elementType": "labels.text.fill",
+                        "stylers": [{
+                            "lightness": "0"
+                        }, {
+                            "saturation": "0"
+                        }]
+                    }, {
+                        "featureType": "administrative.neighborhood",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [{
+                            "weight": "0.01"
+                        }]
+                    }, {
+                        "featureType": "administrative.land_parcel",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [{
+                            "weight": "0.01"
+                        }]
+                    }, {
+                        "featureType": "landscape",
+                        "elementType": "geometry",
+                        "stylers": [{
+    
+                            "color": "#ff7417"
+    
+                        }]
+                    }, {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#ff7417"
+    
+                        }]
+                    }, {
+                        "featureType": "road",
+                        "elementType": "geometry.stroke",
+                        "stylers": [{
+                            "visibility": "off"
+                        }]
+                    }, {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.fill",
+                        "stylers": [{
+                            "color": "#BF4E30"
+                        }]
+                    }, {
+                        "featureType": "road.highway.controlled_access",
+                        "elementType": "geometry.stroke",
+                        "stylers": [{
+                            "color": "#BF4E30"
+                        }]
+                    }, {
+                        "featureType": "road.arterial",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#BF4E30"
+                        }]
+                    }, {
+                        "featureType": "road.local",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#BF4E30"
+                        }]
+                    }, {
+                        "featureType": "transit",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#BF4E30"
+                        }]
+                    }, {
+                        "featureType": "water",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#324046"
+                        }]
+                    }]
+                };
+    
+                // Get the HTML DOM element that will contain your map
+                // We are using a div with id="map" seen below in the <body>
+                var mapElement = document.getElementById('map');
+    
+                // Create the Google Map using our element and options defined above
+                var map = new google.maps.Map(mapElement, mapOptions);
+    
+                var image = 'images/1x/map-car4.png';
+                // Let's also add a marker while we're at it
+                var carmarker = new google.maps.Marker({
+                    position: new google.maps.LatLng(53.383756, -6.275776),
+                    animation: google.maps.Animation.DROP,
+                    map: map,
+                    title: 'Open | Road',
+                    icon: image
+                });
+    
+            }
+        </script>
+
+        $(document).ready(function ()
+{
+    $("#1").on('click', function ()
+    {
+	  newLocation(48.1293954,11.556663);
+	});
+  
+	$("#2").on('click', function ()
+    {
+	  newLocation(40.7033127,-73.979681);
+	});
+  
+    $("#3").on('click', function ()
+    {
+	  newLocation(55.749792,37.632495);
+	});
+});
+        <!-- MAP -->
+</head>
+<body>
+
+
+<header>
+
+<div class="jumbotron text-center home-mast">
+    <img class="img-fluid" id="home-car" src="images/1x/logo-white.png" />
+    <h2>Teaching Glasnevin to drive since 1975</h2> 
+    <br />
+    <button class="btn btn-primary road-submit">Book a lesson</button>
+  </div>
+</header>
+
+
+<section class="about" id="about-section">
+<div class="container-fluid">
+  <div class="text-center">
+      <h2 class="display-4">Hi, I'm Jim</h2>
+
+    </div>
+   <div class="row d-flex justify-content-center">
+     <div class="col-md-4 ml-1">
+       <p class="lead">Tiger jaguar. Panther scottish fold and egyptian mau or norwegian forest american bobtail. Savannah bombay or maine coon for scottish fold for himalayan cheetah. Kitty cornish rex malkin kitten himalayan. </p>
+       <p class="lead">Tiger jaguar. Panther scottish fold and egyptian mau or norwegian forest american bobtail. Savannah bombay or maine coon for scottish fold for himalayan cheetah. Kitty cornish rex malkin kitten himalayan. </p>
+       <img id="signature" class="mt-1" align="right" src="images/SVG/jimsig.svg">
+     </div>
+     <div class="col-md-4 ml-1">
+        <img class="img-fluid ml-1" id="jimmy" src="images/jimmy.jpg">
+
+   </div>
+   </div>
+  </div>
+</section>
+<section id="reviews">
+    <div class="container-fluid">
+        <h2 class="text-center mb-3 review">Reviews</h2>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner row w-100 mx-auto">
+              <div class="carousel-item col-md-4 active">
+                  <div class="card review-card">
+                    <img class="card-img-top img-fluid" src="https://placedog.net/400/200" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card 1</h4>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <footer class="blockquote-footer text-right">Toby Maguire <cite title="Source Title">Finglas</cite></footer>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item col-md-4">
+                    <div class="card review-card">
+                      <img class="card-img-top img-fluid" src="https://placedog.net/400/200" alt="Card image cap">
+                      <div class="card-body">
+                        <h4 class="card-title">Card 1</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <footer class="blockquote-footer text-right">Toby Maguire <cite title="Source Title">Finglas</cite></footer>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item col-md-4">
+                      <div class="card review-card">
+                        <img class="card-img-top img-fluid" src="https://placedog.net/400/200" alt="Card image cap">
+                        <div class="card-body">
+                          <h4 class="card-title">Card 1</h4>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <footer class="blockquote-footer text-right">Toby Maguire <cite title="Source Title">Finglas</cite></footer>
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star"></span>
+                          <span class="fa fa-star"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-item col-md-4">
+                        <div class="card review-card">
+                          <img class="card-img-top img-fluid" src="https://placedog.net/400/200" alt="Card image cap">
+                          <div class="card-body">
+                            <h4 class="card-title">Card 1</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <footer class="blockquote-footer text-right">Toby Maguire <cite title="Source Title">Finglas</cite></footer>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item col-md-4">
+                          <div class="card review-card">
+                            <img class="card-img-top img-fluid card-image" src="https://placedog.net/400/200" alt="Card image cap">
+                            <div class="card-body">
+                              <h4 class="card-title">Card 1</h4>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <footer class="blockquote-footer text-right">Toby Maguire <cite title="Source Title">Finglas</cite></footer>
+                              <span class="fa fa-star checked"></span>
+                              <span class="fa fa-star checked"></span>
+                              <span class="fa fa-star checked"></span>
+                              <span class="fa fa-star"></span>
+                              <span class="fa fa-star"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="carousel-item col-md-4">
+                            <div class="card review-card">
+                              <img class="card-img-top img-fluid" src="https://placedog.net/400/200" alt="Card image cap">
+                              <div class="card-body">
+                                <h4 class="card-title">Card 1</h4>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <footer class="blockquote-footer text-right">Toby Maguire <cite title="Source Title">Finglas</cite></footer>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                              </div>
+                            </div>
+                          </div>
+          </div>
+          <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+        </div>
+    
+</section>
+<section id="address">
+  <div class="container-fluid">
+    <div class="row d-flex">
+       <div class="col-md-4 ml-1"> 
+       <h2>Where I work</h2>
+        <p>Cough need to chase tail, and meow in empty rooms but munch on tasty moths. I like cats because they are fat and fluffy meow meow, i tell my human. </p>
+        <p id="map-customisers">Glasnevin | Drumcondra | Finglas</p><div id="map"></div></div>
+    
+        <div class="col-md-4 ml-1" id="address-text">
+            <section id="contact-section">
+      <div class="container">
+        <h2>Get in touch</h2>
+    <form>
+    <div class="form-group"> <!-- Name field -->
+      <label class="control-label " for="name">Name</label>
+      <input class="form-control road-field" id="name" name="name" type="text"/>
+    </div>
+
+    <div class="form-group"> <!-- Email field -->
+      <label class="control-label requiredField" for="email">Email<span class="asteriskField">*</span></label>
+      <input class="form-control road-field" id="email" name="email" type="text"/>
+    </div>
+
+    <div class="form-group"> <!-- Subject field -->
+      <label class="control-label " for="subject">Subject</label>
+      <input class="form-control road-field" id="subject" name="subject" type="text"/>
+    </div>
+
+    <div class="form-group"> <!-- Message field -->
+      <label class="control-label " for="message">Message</label>
+      <textarea class="form-control road-field" cols="40" id="message" name="message" rows="10"></textarea>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary road-submit" name="submit" type="submit">Submit</button>
+    </div>
+
+</form>								
+</div>
+</section>
+      </div>
+       </div>
+</div>
+
+</section>
+
+
+
+</body>
+</html>

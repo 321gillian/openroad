@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: 9.99
+  start_time: 2018-07-11 18:21:49
+  meeting_point: MyString
+
+two:
+  name: MyString
+  price: 9.99
+  start_time: 2018-07-11 18:21:49
+  meeting_point: MyString

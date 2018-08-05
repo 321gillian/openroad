@@ -1,0 +1,23 @@
+<% if !@order_item.nil? && @order_item.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <% @order_item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% if @order_items.size == 0 %>
+<hr>
+<%= image_tag("1x/parked.png", :alt => "Open | Road Driving School", class: 'animated pulse feature-graphic') %>
+  <p class="text-center">
+    No items to display.<br /> Please <%= link_to "go back", lessons_path %> and add some items to your cart.
+  </p>
+
+<% else %>
+  <% @order_items.each do |order_item| %>
+    <p class="sub-head-accord">You're almost there!</p>
+    <hr>
+    <%= render 'carts/cart_row', lesson: order_item.lesson, order_item: order_item %>
+  <% end %>
+<% end %>

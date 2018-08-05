@@ -1,0 +1,27 @@
+<div class="container-fluid">
+<div class="row d-flex justify-content-center">
+<section class="form-section col-md-6">
+<h2>My Account</h2>
+<h3>My lessons</h3>
+<div class="lessons-rows">
+
+<% if @lessons.present? %>
+ <% @lessons.each_with_index do |i, index| %>
+    <p class="faded-lesson"> <%= i.lesson_start.strftime("%d/%m/%Y - %l%P") %></p>
+    <hr>
+    <% end %>
+    <% else %>
+    <div id="accordion"></div>
+    <p class="sub-head-accord"></p>
+        </div>
+    <% end %>
+  
+ 
+    <h3>My details</h3>
+    <p><%= @user.name %> - <%= @user.email %>
+    <p><%= link_to "Edit account details", edit_user_registration_path(current_user) %></p>
+       </div>
+  </section>
+</div>
+</div>
+

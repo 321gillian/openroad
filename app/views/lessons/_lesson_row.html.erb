@@ -1,0 +1,15 @@
+
+    <% lessons.each do |lesson| %>
+     <% if current_user && current_user.admin? %>
+      <p><span class="lesson-time"><%= lesson.time_readable %></span>  <%= link_to 'Remove', lesson_path(lesson), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary lesson-update' %></p>
+  </div>
+      <% else %>
+      <%= form_for (@order_item), remote: true do |f| %>
+    <%= f.hidden_field :quantity, value: 1, class: "form-control", min: 1 %>
+    <%= f.hidden_field :lesson_id, value: i.id %>
+  <p><span class="lesson-time"><%= lesson.time_readable %></span><%= f.submit "Add to Cart", class: 'btn btn-primary lesson-update',  method: :create, remote: true %></p>
+  <% end %>
+  </div>
+  <% end %>
+  <hr class="lesson-line">
+  <% end %>

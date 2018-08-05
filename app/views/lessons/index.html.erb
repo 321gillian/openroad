@@ -1,0 +1,36 @@
+<div class="container-fluid">
+<div class="row d-flex justify-content-center">
+<section class="form-section col-md-6">
+<h2>Pick a lesson</h2>
+<p class="sub-head-accord">Choose a driving lesson from the list below.<br />Lessons are charged at a flat rate of €35 per hour.</p>
+<hr>
+<div class="lesson-row">
+<% if @lessons.present? %>
+<%= calendar number_of_days: 1, events: @lessons do |date, lessons| %>
+  <div class="admin-row">
+  <% lessons.each_with_index do |i, index| %>
+     <% if current_user && current_user.admin? %>
+      <p><span class="lesson-time"><%= i.time_readable %></span>  <%= link_to 'Remove', lesson_path(i), method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary lesson-update' %></p>
+    
+  </div>
+      <% else %>
+      <%= form_for (@order_item), remote: true do |f| %>
+    <%= f.hidden_field :quantity, value: 1, class: "form-control", min: 1 %>
+    <%= f.hidden_field :lesson_id, value: i.id %>
+  <p><span class="lesson-time"><%= i.time_readable %></span><%= f.submit "Add to Cart", class: 'btn btn-primary lesson-update',  method: :create, remote: true %></p>
+  <% end %>
+<% end %>
+
+  </div>
+  <hr class="lesson-line">
+    <% end %>
+<% end %>
+<% end %>
+
+
+</div>
+  </section>
+</div>
+</div>
+
+

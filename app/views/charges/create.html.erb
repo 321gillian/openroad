@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenRoad</title>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <% if request.ssl? %>
+      <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+    <% else %>
+ 
+      <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+    <% end %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'basicstyles' , media: 'all'%>
+
+  </head>
+  <body>
+     <%= render 'layouts/nav_bar' %>
+     <div class="container-fluid">
+     <div class="row d-flex justify-content-center">
+     <section class="form-section">
+     <h2>Booking complete</h2>
+     <%= image_tag("1x/dice.png", :alt => "Open | Road Driving School", class: 'feature-graphic') %>
+     <p class="form-subhead">Your booking has been made.<br/>
+    You’ll shortly receive an email to confirm.</p>
+        <button class="btn btn-primary road-submit"  href="/account">Return to home</button>
+        </div>
+       </section>
+     </div>
+     </div>
+     
+     
+
+    <%= render 'layouts/footer' %>
+  </body>
+</html>
+

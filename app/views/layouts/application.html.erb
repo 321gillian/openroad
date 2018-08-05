@@ -1,0 +1,29 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Open | Road Driving School - Dublin</title>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'https://unpkg.com/scrollreveal/dist/scrollreveal.min.js' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'basicstyles' , media: 'all'%>
+    <%=  stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css' %>
+
+    <%= favicon_link_tag '1x/open-road.ico' %>
+  </head>
+  <body>
+     <%= render 'layouts/nav_bar' %>
+  
+
+  
+    <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

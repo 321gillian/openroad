@@ -1,0 +1,451 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fbfffe;
+}
+
+h1, h2, h3 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+p {
+    font-family: Quicksand;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #1d2528;
+}
+
+a {
+    color: #ff7417;
+    font-family: Quicksand;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+}
+
+#admin-link {
+    font-family: 'Quicksand', sans-serif;
+    color: #ff7417!important;
+    text-transform: uppercase;
+}
+
+.road-notice {
+    color: #ff7417;
+}
+
+
+input[type=text], select {
+    border-radius: 4px;
+}
+
+.container {
+    max-width: 960px;
+  }
+ 
+
+  /* Nav bar styles */
+.navbar-brand {
+    padding-left:15px;
+}
+  
+.nav-link {
+    font-family: 'Quicksand', sans-serif;
+    color: #d0ddd5!important;
+}
+
+.cart-link {
+    float: right;
+    color: #ff7417!important;
+}
+
+.navbar-nav > li{
+    padding-left:15px;
+    padding-right:15px;
+  }
+
+
+/* Home mast section */
+.logo {
+    margin-bottom: 2.5rem;
+}
+
+.home-mast {    
+    background-repeat: no-repeat;
+    z-index: -2;
+    background: linear-gradient(black,transparent,#000), url("hero.jpg") no-repeat;
+    background-size: cover;
+    border-radius: 0px;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+
+.home-mast h2 {
+    font-size: 1.5em;
+    color: #fbfffe;
+    margin-bottom: 0.75rem;
+}
+
+
+#home-car {
+    max-width: 100%;
+    padding: 20px;
+    z-index: 2;
+
+}
+
+/* Margin classes */
+
+.mt-1 {
+    margin-top: 2rem!important;
+}
+
+.mt-2 {
+    margin-top: 6rem!important;
+}
+
+.mt-4 {
+    margin-top: 10%!important;
+}
+
+.ml-1 {
+    margin-left: 2%!important;
+}
+
+
+
+/* Home about section */
+.display-4 {
+    padding-bottom: 2rem;
+}
+
+.about {
+    padding: 4rem 0;
+}
+
+#jimmy {
+    border-radius: 50%;
+    max-width: 300px;
+ 
+}
+
+#signature {
+    max-width: 70px;
+    margin-right: 30%;
+}
+
+
+hr.dark {
+    max-width: 35rem;
+    padding: 0;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-color: #fbfffe;
+    border-top: solid .15rem;
+}
+
+footer {
+    color: #fbfffe;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.main-footer {
+    background-color: #1d2528!important;
+    border-radius: 0px!important;
+ 
+}
+
+.nav-open-road {
+    background-color: #1d2528!important;
+    z-index: 2;
+}
+
+/* Reviews and carousel styes */
+#reviews {
+    padding: 3rem;
+    background-color: #d0ddd5;
+}
+
+#myCarousel {
+    padding-bottom: 2rem;
+}
+
+.review-card {
+    max-width: 20rem;
+}
+
+.checked {
+    color: #ff7417;
+}
+
+.review {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 2.5rem;
+    padding-bottom: 40px;
+}
+
+.icon-carousel {
+    color: #ff7417!important;
+}
+
+
+
+  /* Address section */
+  #address {
+    padding: 4rem;
+    background-color: #fbfffe;
+    overflow: auto;
+}
+
+#map {
+    width: 600px;
+    height: 300px;
+    margin-left: 2.5rem;
+}
+
+#address-text {
+    padding-left: 80px;
+}
+
+#map-customisers {
+    font-size: 1rem;
+    text-transform: capitalize;
+    color: #ff7417;
+    font-weight: 700;
+}
+
+/* Contact form */
+#contact-car {
+    background: url("1x/contact-car.png") no-repeat;
+
+}
+
+
+
+/* Form Styles */
+.road-field {
+    width: 400px;
+    height: 48px;
+    border: solid 1px #a5b5b0;
+   
+}
+
+.road-field:focus {
+    border-color:  #ff7417!important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 116, 23, 0.5);
+}
+
+.road-submit {
+    width: 400px;
+    height: 48px;
+    background-color: #ff7417;
+    border-color: #ff7417;
+    font-size: 1.125rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.cart-submit {
+    width: 250px;
+    height: 48px;
+    background-color: #ff7417;
+    border-color: #ff7417;
+    font-size: 1.125rem;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    float: right;
+}
+
+.road-submit:hover {
+    background-color: #a5b5b0;
+    border-color:  #a5b5b0;
+}
+
+.road-submit:active {
+    background-color: #a5b5b0!important;
+    border-color:  #ff7417!important;
+}
+
+.road-submit:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 116, 23, 0.5);
+
+}
+
+.form-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.form-section h2 {
+    text-align: center;
+}
+
+.form-subhead {
+    font-family: Quicksand;
+    font-size: 18px;
+    color: #1d2528;
+    text-align: center;
+    margin-bottom: -0.5rem;
+}
+
+.control-label {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+
+/* Accordion styling */
+
+ .accordion-link {
+     margin-left: 70%;
+ }
+
+.sub-head-accord {
+    text-align: center;
+}
+
+.lesson-info {
+    padding-bottom: 1rem;
+}
+
+.status {
+    text-transform: capitalize;
+    color: #ff7417;
+}
+
+.lesson-update {
+    background-color: #ff7417!important;
+    height: 35px;
+    border-color: #ff7417;
+    margin-left: 65%;
+}
+
+.lesson-update:hover {
+    background-color: #a5b5b0;
+    border-color:  #a5b5b0;
+}
+
+.lesson-update:active {
+    background-color: #a5b5b0!important;
+    border-color:  #ff7417!important;
+}
+
+.lesson-update:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 116, 23, 0.5);
+
+}
+
+
+.lesson-time {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+    line-height: 1.33;
+}
+
+/* Cart Styles */
+
+.shopping-cart h4{
+    width: 96px;
+    height: 23px;
+    font-family: Quicksand;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    text-align: center;
+    color: #1d2528;
+}
+
+.total {
+    font-family: Quicksand;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    color: #1d2528;
+    text-align: right!important;
+}
+
+.total-amount {
+    font-family: Quicksand;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    color: #1d2528;
+    text-align: right!important;
+}
+
+#cart-subtotal {
+    float: right;
+    margin-top: 1rem;
+
+}
+
+/* Stripe button styles */
+.stripe-button-el { display: none }
+
+/* Simple calendar styles */
+.road-calendar-heading {
+    text-align: center!important;
+    margin-bottom: 2rem;
+}
+
+.calendar-title {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.33;
+}
+
+
+.simple-calendar table{
+    background-color: #fbfffe!important;
+    border: none!important;
+}
+
+.simple-calendar .today {
+    background:  #ffd1b3;
+}
+
+/* Confirmation Page */
+.feature-graphic {
+    margin-bottom: 2rem;
+    margin-left: 3rem;
+    margin-top: 1rem;
+}
+
+.notice-alert {
+    color: #ff7417;
+    height: 40px;
+}
+
+.faded-lesson {
+    color: #a5b5b0;
+}

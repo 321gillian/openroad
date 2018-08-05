@@ -1,0 +1,32 @@
+
+
+<div class="container-fluid">
+<div class="row d-flex justify-content-center">
+<section class="form-section">
+  <div class="container">
+<h2>Add new lessons</h2>
+
+
+<p class="form-subhead">Please enter a date range for your availability</p>
+<br/>
+<%= simple_form_for @availability do |f| %>
+    <div class="field">
+    <%= f.label :start_time, class: 'control-label' %>
+    <%= f.datetime_field :start_time, class: 'form-control road-field',min: Date.today, step:3600%>
+    </div>
+    <div class="field">
+    <%= f.label :end_time, class: 'control-label' %>
+    <%= f.datetime_field :end_time, class: 'form-control road-field', min: Date.today, step:3600 %>
+    </div>
+    <div class="actions">
+    <%= f.submit "Create", class: 'btn btn-primary road-submit' %>
+  </div>
+<% end %>
+
+
+
+</div>
+</div>
+</section>
+</div>
+

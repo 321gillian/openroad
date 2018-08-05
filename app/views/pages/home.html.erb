@@ -1,0 +1,41 @@
+
+<header>
+<div class="jumbotron text-center home-mast">
+<div class="container-fluid">
+    <%= image_tag("1x/logo-triangle.png", :alt => "Open | Road Driving School", class: "animated lightSpeedIn logo") %>
+    <h2>Teaching Glasnevin to drive since 1975</h2> 
+    <br />
+    <%= button_to "Book a lesson", lessons_path, class: 'btn btn-primary road-submit' %>
+  </div>
+  </div>
+  </header>
+ 
+
+  <section class="about" id="about-section">
+  <div class="container-fluid">
+    <div class="text-center">
+        <h2 class="display-4 reveal">Hi, I'm Jim</h2>
+      </div>
+     <div class="row d-flex justify-content-center">
+       <div class="col-md-4 ml-1">
+
+         <p class="lead">Born and raised in Glasnevin, I've been teaching people to drive for many years around North Dublin. I firmly believe that everyone can enjoy learning to drive and it's never too late to start learning.</p>
+         <p class="lead">I'm flexible in my availability and keen to accomodate anyone who is determined to learn. Driving is a great skill that you'll always be glad you learned. There's nothing like the feeling of passing your driving test.</p>         
+         <div class="jim"><%= image_tag("SVG/jimsig.svg", class: 'mt1 reveal', id: 'signature', align: 'right' )%></div>
+       </div>
+       <div class="col-md-4 ml-1">
+       <%= image_tag("jimmy.jpg", :alt => "Jim, Open | Road Founder", class: 'img fluid ml-1', id: 'jimmy' )%>
+
+     </div>
+     </div>
+    </div>
+  </section>
+    <%= render 'pages/carousel' %>
+        <%= render 'pages/map' %>
+
+<script>
+
+window.sr = ScrollReveal();
+sr.reveal('.reveal');
+sr.reveal('.jim');
+</script>

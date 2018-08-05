@@ -1,0 +1,14 @@
+
+<div class="col-xs-8">
+<h4><%= lesson.date_readable %></h4>
+<p> <%= lesson.time_readable %> <%= lesson.meeting_point %> </p>
+</div>
+<div class="col-xs-4">
+
+<%= form_for order_item, remote: true do |f| %>
+  <p class="text-right">Price: <span style="color: #ff7417"><%= number_to_currency order_item.unit_price, unit: "€"  %></span> &nbsp;|&nbsp;  <%= link_to "Remove", order_item, { data: { confirm: "Are you sure you wish to delete the lesson '#{order_item.lesson.id}' from your cart?" }, method: :delete, remote: true } %></p>
+      <%= f.hidden_field :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1 %>
+      <%= f.hidden_field :lesson_id, value: lesson.id %>
+    </div>
+<% end %>
+<hr>
